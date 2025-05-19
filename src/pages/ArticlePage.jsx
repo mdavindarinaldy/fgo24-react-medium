@@ -38,7 +38,7 @@ function ArticlePage() {
         uname: '@LetTheWindLead',
         name: 'Jean Gunnhildr',
         img: '/pic3.jpg',
-        titlePage: 'When a Word Becomes Inspiration to Move',
+        titlePage: 'When Someone Breaks Your Heart',
         subheading: 'Pick Up Your Pieces to Become A Whole Again',
         paragraph: [
             'A broken heart feels like a shattering of the self, each fragment carrying a memory, a hope, or a piece of who you thought you were. When someone breaks your heart, the pain can be all-consuming, leaving you to wonder if you`ll ever feel whole again. Yet, within this ache lies an opportunity—a chance to gather the scattered pieces of your spirit and rebuild a version of yourself that is stronger, wiser, and more resilient. The journey begins with acknowledging the hurt, not as a wound to hide, but as a map that guides you toward healing.',
