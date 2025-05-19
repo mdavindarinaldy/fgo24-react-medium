@@ -60,6 +60,36 @@ function ArticlePage() {
             `Taking responsibility is where regret becomes actionable. Apologize if your actions hurt someone, not to erase the past but to honor the present. Make amends where possible, whether through changed behavior or renewed commitment to your values. If the regret stems from missed opportunities, start small—take one step toward that goal you once abandoned. Each action, no matter how modest, is a declaration that you're not defined by your past but by how you respond to it. Regret shows you where you fell short, and responsibility empowers you to rise higher.`,
             `Ultimately, regret is a teacher, not a life sentence. It reminds you that you're human, capable of missteps but also of profound growth. Each pang of regret is a call to do better—to listen more, to act with courage, to live with purpose. As you integrate its lessons, you'll find that the past no longer holds you captive. Instead, it becomes the foundation for a life built on intention and resilience, where every choice is a chance to prove to yourself that you can, and will, do much better.`
         ]
+    }, {
+        id: 5,
+        uname: '@FuriousFiveFanpage',
+        name: 'Po The Dragon Warrior',
+        slug: 'inner-peace',
+        img: '/pic5.jpg',
+        titlePage: 'Inner Peace',
+        subheading: 'How to Stay at Peace with Yourself Even in the Most Ridiculous Situation',
+        paragraph: [
+            `Inner peace is like an anchor, steadying you when life throws absurd challenges your way—whether it’s a comical misunderstanding, a chaotic day, or an unexpected twist that defies logic. It's not about escaping the ridiculousness but about cultivating a calm center that remains untouched by external turmoil. Finding this peace starts with accepting that life's unpredictability is inevitable. By anchoring yourself in self-awareness and resilience, you can face even the most bizarre situations with a serene heart, knowing your inner calm is yours to control.`,
+            `The first step to staying peaceful is to pause and breathe. When you're caught in a ridiculous moment—like a meeting gone haywire or a plan unraveling spectacularly—your instinct might be to react impulsively. Instead, take a deep breath and ground yourself in the present. This simple act creates a mental pause, allowing you to detach from the chaos and observe it without being consumed. Breathing anchors you to the moment, reminding you that no matter how absurd things seem, your inner state doesn't have to mirror the external frenzy.`,
+            `Another key is to reframe the situation with humor or curiosity. Ridiculous moments often carry an inherent absurdity that can be disarmed by a shift in perspective. Ask yourself: What's the lesson here? Or better yet, how might this be funny in hindsight? By choosing to see the humor or potential growth in a bizarre scenario, you diffuse its power to unsettle you. This doesn't mean ignoring genuine frustrations but rather approaching them with a lightness that preserves your peace, turning a potential crisis into a story you'll laugh about later.`,
+            `Practicing self-compassion is also essential. In absurd situations, it's easy to feel embarrassed or frustrated with yourself for being caught off guard. But beating yourself up only erodes your peace. Instead, remind yourself that you're human, and humans navigate messy, unpredictable moments. Speak to yourself with kindness: “I'm doing my best, and that's enough.” This gentle self-talk builds an inner sanctuary, a place where you can retreat no matter how wild the external world becomes, ensuring your peace remains intact.`,
+            `Finally, cultivate a daily habit of mindfulness to strengthen your inner peace over time. Whether through meditation, journaling, or a quiet walk, these practices help you build a reservoir of calm that you can draw from in any situation. When you regularly connect with your inner self, ridiculous moments lose their ability to shake you. They become mere ripples on the surface of a deep, still lake. Inner peace isn't about avoiding life's absurdities but about carrying a quiet strength that lets you smile through them, knowing you are whole, no matter what.`
+        ]
+    }, {
+        id: 6,
+        uname: '@BestVikingAllTheTime',
+        name: 'Astrid Hofferson',
+        slug: 'how-to-train-your-own-dragon',
+        img: '/pic6.jpg',
+        titlePage: 'How To Train Your Own Dragon',
+        subheading: 'Becoming the Best of You Even with Your Limitations',
+        paragraph: [
+            `Within each of us lives a "dragon"—a unique blend of strengths, passions, and limitations that shapes who we are. Just as Hiccup in How to Train Your Dragon learned to work with Toothless's quirks, you can train your inner dragon by embracing your imperfections and turning limitations into opportunities. Becoming the best version of yourself doesn't mean erasing your flaws; it's about understanding them, harnessing your unique fire, and soaring to new heights despite the odds. This journey starts with seeing your limitations not as chains but as part of the dragon you're learning to ride.`,
+            `The first step is to know your dragon—deeply and honestly. Take time to reflect on your strengths and the limitations that feel like burdens, whether they're physical, emotional, or circumstantial. Maybe you struggle with self-doubt, face time constraints, or have a skill you haven't mastered. Write them down, not to dwell on them, but to understand their shape. Like Hiccup studying Toothless's missing tail fin, this awareness lets you adapt. By knowing where your dragon falters, you can build strategies—like setting small goals or seeking support—to navigate around those gaps and keep moving forward.`,
+            `Training your dragon also means building a bond of trust with yourself. Limitations can make you feel unworthy, but self-compassion is the key to progress. Celebrate small victories, like finishing a task despite feeling overwhelmed or trying something new even if it scares you. Remind yourself that every dragon has its quirks, and yours make you unique. When you treat yourself with patience, as Hiccup did with Toothless, you create a foundation of confidence. This trust empowers you to push past self-imposed barriers and take risks that bring out your best.`,
+            `Another vital skill is adapting your flight path. Limitations often require creative problem-solving, much like Hiccup's inventions for Toothless. If time is short, prioritize tasks that align with your goals. If a skill feels out of reach, break it into manageable steps or find alternative ways to achieve your aim. Seek inspiration from others who've overcome similar challenges, whether through books, mentors, or communities. By reframing obstacles as puzzles to solve, you transform your limitations into catalysts for growth, proving that even a dragon with a clipped wing can still soar.`,
+            `Finally, let your dragon fly free by embracing your purpose. Your limitations don't define you—they refine you, shaping a path that's uniquely yours. Focus on what lights you up, whether it's creating, helping others, or exploring new ideas. Each step toward your passion, no matter how small, is a victory. Like Hiccup and Toothless soaring above Berk, you'll find that training your dragon isn't about perfection but about courage, resilience, and the joy of becoming the best you, limitations and all. So, saddle up, face the wind, and let your dragon take flight.`
+        ]
     }
   ]
   const found = users.find((element) => element.uname === username)
@@ -75,7 +105,7 @@ function ArticlePage() {
                     <span>{found.uname}</span>
                     <span>{found.name}</span>
                 </div>
-                <img src={found.img} alt="banner-photo" className='size-[30svw] self-center'/>
+                <img src={found.img} alt="banner-photo" className='size-[30svw] self-center object-cover'/>
                 <div className='flex flex-col gap-3 text-justify'>
                     {found.paragraph.map((item,index) => (
                         <p key={`paragraph-${index}`}>{item}</p>

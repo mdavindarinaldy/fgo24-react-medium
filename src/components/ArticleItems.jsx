@@ -14,7 +14,7 @@ function ArticleItems({name, title, subheading, uname, slug, img, ...props}) {
                     <span className='text-4xl font-bold'>{title}</span>
                     <span className='text-gray-500 text-2xl font-semibold'>{subheading}</span>
                 </div>
-                <img src={img} alt="article-picture" className='size-[15svw] rounded-2xl'/>
+                <img src={img} alt="article-picture" className='size-[15svw] rounded-2xl object-cover'/>
             </div>
     </article>
   )

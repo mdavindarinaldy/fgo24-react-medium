@@ -38,6 +38,22 @@ function HomePage() {
         img: '/pic4.jpg',
         titlePage: 'Dealing with Past Actions',
         subheading: 'Regretting is a Sign That You Know You Can Do Much Better',
+    }, {
+        id: 5,
+        uname: '@FuriousFiveFanpage',
+        name: 'Po The Dragon Warrior',
+        slug: 'inner-peace',
+        img: '/pic5.jpg',
+        titlePage: 'Inner Peace',
+        subheading: 'How to Stay at Peace with Yourself Even in the Most Ridiculous Situation',
+    }, {
+        id: 6,
+        uname: '@BestVikingAllTheTime',
+        name: 'Astrid Hofferson',
+        slug: 'how-to-train-your-own-dragon',
+        img: '/pic6.jpg',
+        titlePage: 'How To Train Your Own Dragon',
+        subheading: 'Becoming the Best of You Even with Your Limitations',
     }
   ]
   let filteredUsers = users
