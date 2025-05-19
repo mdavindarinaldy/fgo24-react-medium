@@ -4,10 +4,10 @@ import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 
 function NavBar() {
-  const [, setSearchParam] = useSearchParams()
+  const [searchParam, setSearchParam] = useSearchParams()
   const {register, handleSubmit} = useForm()
   let navigate = useNavigate()
-  
+  let res = searchParam.get('result')
   function submitData(value) {
     navigate('/')
     setSearchParam(value)
@@ -21,7 +21,7 @@ function NavBar() {
                 <button className='border-0 bg-transparent'>
                     <img src="/search.svg" alt="search-icon"/>
                 </button>
-                <input type='text' {...register('result')} placeholder='Search' className='outline-0 border-0  text-black'/>
+                <input defaultValue={res} autoFocus type='text' {...register('result')} placeholder='Search' className='outline-0 border-0  text-black'/>
             </form>
         </div>
         <div className='flex flex-row gap-5 items-center'>
