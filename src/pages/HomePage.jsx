@@ -1,5 +1,4 @@
 import React from 'react'
-import NavBar from '../components/NavBar'
 import { useSearchParams } from 'react-router-dom'
 import ArticleItems from '../components/ArticleItems'
 
@@ -45,14 +44,12 @@ function HomePage() {
   if (res) {filteredUsers = users.filter((item) => item.titlePage.toLowerCase().includes(res))}
 
   return (
-    <div className='flex flex-col justify-center items-center gap-10 mb-10'>
-        <NavBar/>
-        <div className='h-[10svh]'></div>
-        <section>{res && <div className='text-2xl'>Hasil dari pencarian: <span className='font-bold'>"{res}"</span> ({filteredUsers.length})</div>}</section>
+    <>
+        <section>{res && <div className='text-2xl'>{filteredUsers.length} article(s) for <span className='font-bold'>"{res}"</span> </div>}</section>
         {filteredUsers.map((item, index) => (
             <ArticleItems key={`article-${index}`} name={item.name} title={item.titlePage} subheading={item.subheading} uname={item.uname} slug={item.slug} img={item.img}/>
         ))}
-    </div>
+    </>
   )
 }
 

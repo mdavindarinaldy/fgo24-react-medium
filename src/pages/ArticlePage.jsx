@@ -1,6 +1,5 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import NavBar from '../components/NavBar'
 
 function ArticlePage() {
   const {username} = useParams()
@@ -66,9 +65,7 @@ function ArticlePage() {
   const found = users.find((element) => element.uname === username)
   console.log(found)
   return (
-    <div className='flex flex-col gap-5 bg-gray-100'>
-        <NavBar/>
-        <div className='h-[10svh]'></div>
+    <>
         <div className='flex flex-row justify-center items-center mb-10'>
             <div className='flex flex-col h-fit w-[60%] bg-white rounded-3xl gap-5 px-10 py-10'>
                 <span className='text-4xl font-bold'>{found.titlePage}</span>
@@ -86,7 +83,7 @@ function ArticlePage() {
                 </div>
             </div>
         </div>
-    </div>
+    </>
   )
 }
 
