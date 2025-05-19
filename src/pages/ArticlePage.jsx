@@ -61,7 +61,7 @@ function ArticlePage() {
                 <span className='text-gray-500 text-2xl font-semibold'>{found.subheading}</span>
                 <div className='flex flex-row gap-2'>
                     <span>Written by: </span>
-                    <span>{found.username}</span>
+                    <span>{found.uname}</span>
                     <span>{found.name}</span>
                 </div>
                 <img src={found.img} alt="banner-photo" className='size-[30svw] self-center'/>
