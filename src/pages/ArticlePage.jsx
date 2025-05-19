@@ -39,7 +39,7 @@ function ArticlePage() {
         name: 'Jean Gunnhildr',
         img: '/pic3.jpg',
         titlePage: 'When a Word Becomes Inspiration to Move',
-        subheading: 'Next Stop: Anywhere Everywhere',
+        subheading: 'Pick Up Your Pieces to Become A Whole Again',
         paragraph: [
             'A broken heart feels like a shattering of the self, each fragment carrying a memory, a hope, or a piece of who you thought you were. When someone breaks your heart, the pain can be all-consuming, leaving you to wonder if you`ll ever feel whole again. Yet, within this ache lies an opportunity—a chance to gather the scattered pieces of your spirit and rebuild a version of yourself that is stronger, wiser, and more resilient. The journey begins with acknowledging the hurt, not as a wound to hide, but as a map that guides you toward healing.',
             'The first step is to sit with your pain, to let it exist without judgment. It`s tempting to rush past the grief, to distract yourself with busyness or bury the hurt in denial, but healing requires presence. Cry if you need to, write the words you can`t say aloud, or simply breathe through the weight of it all. Each tear, each quiet moment, is a way of honoring what was lost. In this vulnerability, you begin to find the edges of your broken pieces—not to force them back together, but to understand their shape and how they fit into the mosaic of who you are becoming.',
