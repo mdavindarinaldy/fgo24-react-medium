@@ -31,6 +31,14 @@ function HomePage() {
         img: '/pic3.jpg',
         titlePage: 'When Someone Breaks Your Heart',
         subheading: 'Pick Up Your Pieces to Become A Whole Again',
+    }, {
+        id: 4,
+        uname: '@TALLPERSON',
+        name: 'Edward Elric',
+        slug: 'dealing-with-regret',
+        img: '/pic4.jpg',
+        titlePage: 'Dealing with Past Actions',
+        subheading: 'Regretting is a Sign That You Know You Can Do Much Better',
     }
   ]
   let filteredUsers = users
