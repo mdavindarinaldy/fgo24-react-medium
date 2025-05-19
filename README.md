@@ -1,4 +1,4 @@
-# Basic React Project Form
+# Basic React Project Medium
 
 This project is for training only. Through this project, we learn to useNavigate and useParams on React-Router-DOM to switching pages.
 
