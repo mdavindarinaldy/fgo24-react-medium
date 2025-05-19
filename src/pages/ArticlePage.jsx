@@ -57,7 +57,7 @@ function ArticlePage() {
         <div className='h-[10svh]'></div>
         <div className='flex flex-row justify-center items-center mb-10'>
             <div className='flex flex-col h-fit w-[60%] bg-white rounded-3xl gap-5 px-10 py-10'>
-                <span className='text-4xl font-bold'>{found.title}</span>
+                <span className='text-4xl font-bold'>{found.titlePage}</span>
                 <span className='text-gray-500 text-2xl font-semibold'>{found.subheading}</span>
                 <div className='flex flex-row gap-2'>
                     <span>Written by: </span>
