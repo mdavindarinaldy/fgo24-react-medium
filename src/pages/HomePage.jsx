@@ -57,7 +57,7 @@ function HomePage() {
     }
   ]
   let filteredUsers = users
-  if (res) {filteredUsers = users.filter((item) => item.titlePage.toLowerCase().includes(res))}
+  if (res) {filteredUsers = users.filter((item) => item.titlePage.toLowerCase().includes(res.toLowerCase()))}
 
   return (
     <>
