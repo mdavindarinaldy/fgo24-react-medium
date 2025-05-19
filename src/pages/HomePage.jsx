@@ -33,8 +33,8 @@ function HomePage() {
         subheading: 'Pick Up Your Pieces to Become A Whole Again',
     }
   ]
-
-  const filteredUsers = users.filter((item) => item.titlePage.toLowerCase().includes(res.toLowerCase()))
+  let filteredUsers = users
+  if (res) {filteredUsers = users.filter((item) => item.titlePage.toLowerCase().includes(res))}
 
   return (
     <div className='flex flex-col justify-center items-center gap-10 mb-10'>
