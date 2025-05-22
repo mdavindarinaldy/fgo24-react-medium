@@ -1,10 +1,10 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-function ArticleItems({name, title, subheading, uname, slug, img, ...props}) {
+function ArticleItems({name, id, title, subheading, uname, slug, img, ...props}) {
   let navigate = useNavigate()
   return (
-    <article className='flex flex-col border-1 border-gray-400 rounded-3xl px-5 py-5 w-[80svw] hover:cursor-pointer' onClick={() => {navigate(`/article/${uname}/${slug}`)}} {...props}>
+    <article className='flex flex-col border-1 border-gray-400 rounded-3xl px-5 py-5 w-[80svw] hover:cursor-pointer' onClick={() => {navigate(`/article/${id}/${uname}/${slug}`)}} {...props}>
             <div className='flex flex-row gap-3 items-center justify-start px-2 py-2'>
                 <img src="/circle-user.svg" alt="user-profile-photo"/>
                 <span>{name}</span>

@@ -13,7 +13,7 @@ const router = createBrowserRouter ([
         path: '/',
         element: <HomePage/>
       }, {
-        path: '/article/:username/:slug',
+        path: '/article/:id/:username/:slug',
         element: <ArticlePage/>
       }
     ]

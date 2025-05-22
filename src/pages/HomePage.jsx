@@ -1,70 +1,76 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import ArticleItems from '../components/ArticleItems'
 
 function HomePage() {
-  const [searchParam,] = useSearchParams()
-  const res = searchParam.get('result')
-  const users = [
-    { 
-        id: 1,
-        uname: '@bocilFF',
-        img: '/pic1.jpg',
-        slug: 'anywhere-everywhere',
-        name: 'Freyjadour Falenas',
-        titlePage: 'When a Word Becomes Inspiration to Move',
-        subheading: 'Next Stop: Anywhere Everywhere',
-    }, {
-        id: 2,
-        uname: '@MamangGanteng',
-        name: 'Mamang Dokar',
-        slug: "a-new-way-of-life",
-        img: '/pic2.jpg',
-        titlePage: 'Becoming A Boring Person',
-        subheading: 'A New Way of Life to Celebrate Yourself',
-    }, {
-        id: 3,
-        uname: '@LetTheWindLead',
-        name: 'Jean Gunnhildr',
-        slug: "become-a-whole-again",
-        img: '/pic3.jpg',
-        titlePage: 'When Someone Breaks Your Heart',
-        subheading: 'Pick Up Your Pieces to Become A Whole Again',
-    }, {
-        id: 4,
-        uname: '@TALLPERSON',
-        name: 'Edward Elric',
-        slug: 'dealing-with-regret',
-        img: '/pic4.jpg',
-        titlePage: 'Dealing with Past Actions',
-        subheading: 'Regretting is a Sign That You Know You Can Do Much Better',
-    }, {
-        id: 5,
-        uname: '@FuriousFiveFanpage',
-        name: 'Po The Dragon Warrior',
-        slug: 'inner-peace',
-        img: '/pic5.jpg',
-        titlePage: 'Inner Peace',
-        subheading: 'How to Stay at Peace with Yourself Even in the Most Ridiculous Situation',
-    }, {
-        id: 6,
-        uname: '@BestVikingAllTheTime',
-        name: 'Astrid Hofferson',
-        slug: 'how-to-train-your-own-dragon',
-        img: '/pic6.jpg',
-        titlePage: 'How To Train Your Own Dragon',
-        subheading: 'Becoming the Best of You Even with Your Limitations',
+  const [article, setArticle] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+  const [searchParams, setSearchParams] = useSearchParams()
+  const res = searchParams.get('result')
+  const currentPage = (parseInt(searchParams.get('page')) || 1)
+  const itemPerPage = 5
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch('/Article.json')
+        const data = await res.json()
+        setArticle(data)
+        setLoading(false)
+      } catch (err) {
+        setError(err.message)
+        setLoading(false)
+      }
     }
-  ]
-  let filteredUsers = users
-  if (res) {filteredUsers = users.filter((item) => item.titlePage.toLowerCase().includes(res.toLowerCase()))}
+    fetchData()
+  }, [])
+
+  let filteredArticle = article
+  if (res) {filteredArticle = article.filter((item) => item.titlePage.toLowerCase().includes(res.toLowerCase()))}
+
+  const totalPage = Math.ceil(filteredArticle.length / itemPerPage)
+  let validPage
+  if (currentPage < 1) {
+    validPage = 1
+  } else if (currentPage > totalPage) {
+    validPage = totalPage
+  } else {
+    validPage = currentPage
+  }
+
+  const startIndex = (validPage - 1) * itemPerPage
+  const endIndex = startIndex + itemPerPage
+  const currentPageData = filteredArticle.slice(startIndex, endIndex)
+
+  const handlePageChange = (page) => {setSearchParams({ result: res || '', page })}
+
+  const pages = [];
+  for (let i = 1; i <= totalPage; i++) {pages.push(i)}
+
+  if (loading) { return (<div className="h-svh flex flex-col justify-center items-center">Loading...</div>) }
+  if (error) { return (<div className="h-svh flex flex-col justify-center items-center">{error}</div>) }
 
   return (
     <>
-        <section>{res && <div className='text-2xl'>{filteredUsers.length} article(s) for <span className='font-bold'>"{res}"</span> </div>}</section>
-        {filteredUsers.map((item, index) => (
-            <ArticleItems key={`article-${index}`} name={item.name} title={item.titlePage} subheading={item.subheading} uname={item.uname} slug={item.slug} img={item.img}/>
-        ))}
+      <section>
+        {res && (
+          <div className="text-2xl">
+            {filteredArticle.length} article(s) for{' '}
+            <span className="font-bold">"{res}"</span>
+          </div>
+        )}
+      </section>
+      {currentPageData.map((item, index) => (
+        <ArticleItems key={`article-${index}`} name={item.name} title={item.titlePage} subheading={item.subheading} uname={item.uname} id={item.id} slug={item.slug} img={item.img}/>
+      ))}
+      {totalPage > 1 && (
+        <div className="flex justify-center items-center gap-2 mt-4 mb-8">
+          {pages.map((page) => (
+            <button key={`page-${page}`} onClick={() => handlePageChange(page)} className={`px-4 py-2 rounded-md ${page === validPage ? 'bg-gray-700 text-white font-bold' : 'bg-gray-500 text-white hover:bg-gray-600'}`}>{page}</button>
+          ))}
+        </div>
+      )}
     </>
   )
 }
