@@ -5,12 +5,22 @@ import { useForm } from 'react-hook-form'
 
 function NavBar() {
   const [searchParam, setSearchParam] = useSearchParams()
-  const {register, handleSubmit} = useForm()
+  const {register, handleSubmit} = useForm({
+    defaultValues: {
+        result: searchParam.get('result') || '',
+        sort: searchParam.get('sort') || 'asc'
+    }
+  })
+
   let navigate = useNavigate()
   let res = searchParam.get('result')
   function submitData(value) {
     navigate('/')
-    setSearchParam(value)
+    setSearchParam({
+        result: value.result || '',
+        sort: value.sort || 'asc',
+        page: searchParam.get('page') || '1'
+    })
   }
 
   return (
@@ -22,6 +32,10 @@ function NavBar() {
                     <img src="/search.svg" alt="search-icon"/>
                 </button>
                 <input defaultValue={res} autoFocus type='text' {...register('result')} placeholder='Search' className='outline-0 border-0  text-black'/>
+                <select {...register('sort')}className="outline-0 border-0 text-black bg-gray-50 rounded-md px-2 py-1">
+                    <option value="asc">Sort: A to Z</option>
+                    <option value="desc">Sort: Z to A</option>
+                </select>
             </form>
         </div>
         <div className='flex flex-row gap-5 items-center'>

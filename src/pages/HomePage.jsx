@@ -8,6 +8,7 @@ function HomePage() {
   const [error, setError] = useState(null)
   const [searchParams, setSearchParams] = useSearchParams()
   const res = searchParams.get('result')
+  const sort = searchParams.get('sort') || 'asc';
   const currentPage = (parseInt(searchParams.get('page')) || 1)
   const itemPerPage = 5
 
@@ -29,6 +30,20 @@ function HomePage() {
   let filteredArticle = article
   if (res) {filteredArticle = article.filter((item) => item.titlePage.toLowerCase().includes(res.toLowerCase()))}
 
+  filteredArticle = [...filteredArticle].sort((a, b) => {
+    const titleA = a.titlePage.toLowerCase()
+    const titleB = b.titlePage.toLowerCase()
+    if (sort === 'asc') {
+        if (titleA < titleB) {return -1}
+        if (titleA > titleB) {return 1}
+        return 0
+    } else if (sort === 'desc') {
+        if (titleA > titleB) {return -1}
+        if (titleA < titleB) {return 1}
+        return 0
+    }
+  })
+
   const totalPage = Math.ceil(filteredArticle.length / itemPerPage)
   let validPage
   if (currentPage < 1) {
@@ -43,7 +58,12 @@ function HomePage() {
   const endIndex = startIndex + itemPerPage
   const currentPageData = filteredArticle.slice(startIndex, endIndex)
 
-  const handlePageChange = (page) => {setSearchParams({ result: res || '', page })}
+  const handlePageChange = (page) => {
+    setSearchParams({ 
+        result: res || '', 
+        sort: sort || 'asc',
+        page 
+    })}
 
   const pages = [];
   for (let i = 1; i <= totalPage; i++) {pages.push(i)}
