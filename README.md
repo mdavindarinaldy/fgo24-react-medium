@@ -6,8 +6,9 @@ This project is for training only. Through this project, we learn to useNavigate
 
 ![Preview](./preview.png)
 
-## How to Run this Project
+## How to Run this Project (Manual/Docker)
 
+### Manually
 1. Clone this project
 ```
 git clone https://github.com/mdavindarinaldy/fgo24-react-medium.git
@@ -20,7 +21,22 @@ npm install
 ```
 npm run dev
 ```
-4. Project will running on http://localhost:5173
+4. Project will be running on http://localhost:5173
+
+### With Docker
+1. Clone this project
+```
+git clone https://github.com/mdavindarinaldy/fgo24-Tickitz.git
+```
+2. Build image
+```
+docker build . -t ubuntu:medium
+```
+3. Run image with docker
+```
+docker run -p 8080:80 -d ubuntu:medium
+```
+4. Project will be running on http://localhost:8080
 
 ## Dependencies
 This project using node.js to run, make sure to install node on your machine. Other than that, this project also using Vite, React, React Router DOM and ESLint.
