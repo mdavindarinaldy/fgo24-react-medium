@@ -26,7 +26,7 @@ npm run dev
 ### With Docker
 1. Clone this project
 ```
-git clone https://github.com/mdavindarinaldy/fgo24-Tickitz.git
+git clone https://github.com/mdavindarinaldy/fgo24-react-medium.git
 ```
 2. Build image
 ```
